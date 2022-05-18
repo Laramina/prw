@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body {
+    background-color: rgb(58, 91, 121);
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+}
+fieldset {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+
+}
