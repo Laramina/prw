@@ -1,6 +1,6 @@
 <?php
    include('conexao.php');
-   $id_usuario = $_GET['id_agenda'];
+   $id_agenda = $_GET['id_agenda'];
    $sql = 'SELECT * FROM agenda where id_agenda='.$id_agenda;
    $result = mysqli_query($con, $sql);
    $row = mysqli_fetch_array($result);
@@ -18,7 +18,7 @@
 <body>
     <h1>Cadastro de Clientes  - IFSP</h1>
     <div id="teste">
-        <form method="post" action="altera_agenda_exe.php">
+        <form method="post" action="altera_agenda_exe.php" enctype='multipart/form-data'>
             <fieldset>
                 <legend>Cadastro</legend>
                 <div class="form-item">

@@ -1,9 +1,9 @@
 @charset "UTF-8";
 body {
-    background-color: rgb(211, 234, 255);
+    background-color: rgb(144, 198, 248);
 }
 h1{
-    color: aliceblue;
+    color: rgb(173, 206, 235);
     text-align: center;
 }
 fieldset {
