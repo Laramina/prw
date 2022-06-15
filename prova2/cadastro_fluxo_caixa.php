@@ -1,25 +1,30 @@
-<?php 
-   include('conexao.php');
+<?php
+  include('conexao.php');
+        
+        $data = $_POST['data'];
+        echo '<p>Data: '.$data;
+        
+        $tipo = $_POST['tipo'];
+        echo '<p>Tipo: '.$tipo;
+        
+        $valor = $_POST['valor'];
+        echo '<p>valor: '.$valor;
+        
+        $historico = $_POST['historico'];
+        echo '<p>Histórico: '.$historico;
+        
+        $cheque = $_POST['cheque'];
+        echo '<p>Cheque: '.$cheque;
+    
+    $sql = " INSERT INTO fluxo_caixa (data, tipo, valor, historico, cheque)
+    VALUES ('".$data. "','".$tipo."','".$valor."','".$historico."','".$cheque."')";
+     echo'<br>';
+     echo'<br>';
+    $result = mysqli_query($con, $sql);
+    if($result)
+      echo 'Dados inseridos com sucesso';
+    else
+    echo 'Erro ao inserir no banco de dados: '.mysqli_error($con);
+        
 
-    $data = $_POST['data'];
-    $tipo = $_POST['tipo'];
-    $valor = $_POST['valor'];
-    $historico = $_POST['historico'];
-    $cheque = $_POST['cheque'];
-    echo "<h1> Cadastro </h1>";
-    echo "<p> Data: " . $data . "<br>";
-    echo "<p> Tipo: " . $tipo . "<br>";
-    echo "<p> Valor: " . $valor . "<br>";
-    echo "<p> Histórico: " . $historico . "<br>";
-    echo "<p> Cheque: " . $cheque . "<br>";
-
-	
-	$sql = "INSERT INTO integer (data,tipo,valor,historico,cheque) 
-	        VALUES ('".$data."','".$tipo."','".$valor."','".$historico."','".$cheque."')";
-	    
-	$result = mysqli_query($con, $sql);
-	if($result)
-		echo "Dados inseridos com sucesso";
-	else
-		echo "Erro ao inserir no banco de dados: ".mysqli_error($con);
 ?>

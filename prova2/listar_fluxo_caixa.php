@@ -1,7 +1,7 @@
 <?php 
 
     include ('conexao.php');
-    $sql = 'SELECT * FROM integer';
+    $sql = 'SELECT * FROM fluxo_caixa';
 
     //retorna todos os dados da consulta
     $result = mysqli_query($con, $sql);
@@ -37,20 +37,23 @@
         </tr>
 
         <?php 
-            while ($row = mysqli_fetch_array($result)) {
-                echo "<tr>";
-                echo "<td>" .$row['id_integer']. "</td>";
-                echo "<td><a href='Altera_fluxo_caixa.php?id_prova2=".$row['id_rova2']."'>" .$row['data']. "</a></td>";
-                echo "<td>" .$row['tipo']. "</td>";
-                echo "<td>" .$row['valor']. "</td>";
-                echo "<td>" .$row['historico']. "</td>";
-                echo "<td>" .$row['cheque']. "</td>";
-                echo "<td><a href='Excluir_fluxo_caixa.php?id_prova2=".$row['id_prova2']."'>Excluir</a></td>";
-                echo "</tr>";                
-         }
+          while ($row = mysqli_fetch_array($result)) {
+            echo "<tr>";
+            echo "<td>" .$row['id_fluxo_caixa']. "</td>";
+            echo "<td><a href='altera_fluxo_caixa.php?id_fluxo_caixa=".$row['id_fluxo_caixa']."'>" .$row['data']. "</a></td>";
+            echo "<td>" .$row['tipo']. "</td>";
+            echo "<td>" .$row['valor']. "</td>";
+            echo "<td>" .$row['historico']. "</td>";
+            echo "<td>" .$row['cheque']. "</td>";
+            echo "<td><a href='excluir_fluxo_caixa.php?id_fluxo_caixa=".$row['id_fluxo_caixa']."'>Excluir</a></td>";
+            echo "</tr>";
+        }  
         ?>
 
     </table>
-     <a href="Index.php">voltar</a>
+     
 </body>
 </html>
+
+
+   

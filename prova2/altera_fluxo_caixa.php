@@ -1,7 +1,7 @@
 <?php
    include('conexao.php');
-   $id_integer = $_GET['id_integer'];
-   $sql = 'SELECT * FROM integer where id_integer='.$id_integer;
+   $id_fluxo_caixa = $_GET['id_fluxo_caixa'];
+   $sql = 'SELECT * FROM fluxo_caixa where id_fluxo_caixa='.$id_fluxo_caixa;
    $result = mysqli_query($con, $sql);
    $row = mysqli_fetch_array($result);
 ?>
@@ -19,21 +19,17 @@
     <h1>Cadastro de fluxo</h1>
     <div id="teste">
         <form method="post" action="altera_fluxo_caixa_exe.php" enctype='multipart/form-data'>
-            <fieldset>
+            
                 <legend>Cadastro</legend>
                 <div class="form-item">
                     <label for="data">Data:</label>
-                    <input type="text" id="data" name="data" value="<?php echo $row['data']?>" placeholder="Digite a data">
+                    <input type="date" id="data" name="data" value="<?php echo $row['data']?>" placeholder="Digite a data">
                 </div>
                 <div class="form-item">
-                    <label for="tipo">tipo:</label>
-                    <input type="radio" id="tipo" name="tipo"
-                    value = "saida"> saída
-                </div>
-                <div class="form-item">
-                    <label for="tipo">tipo:</label>
-                    <input type="radio" id="tipo" name="tipo"
-                    value = "entrada"> entrada
+                     <label for="tipo">Tipo:</label>
+                    <input type="radio" id="tipo" name="tipo" value="<?php echo $row['tipo']?>">Entrada
+                    <input type="radio" id="tipo" name="tipo" value="<?php echo $row['tipo']?>">Saída
+                </div>                   
                 </div>
                 <div class="form-item">
                     <label for="valor">Valor:</label>
@@ -52,8 +48,8 @@
                     <input id="btn" type="submit" value="Enviar" >
                     <a href='index.php'> Voltar</a>
                 </div>
-                <input name="id_prova2" type="hidden" value="<?php echo $row['id_prova2']?>">
-            </fieldset>
+                <input name="id_fluxo_caixa" type="hidden" value="<?php echo $row['id_fluxo_caixa']?>">
+            
         </form>
     </div>
 </body>
